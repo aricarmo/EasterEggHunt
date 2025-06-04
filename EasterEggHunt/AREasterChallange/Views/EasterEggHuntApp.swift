@@ -6,6 +6,6 @@ struct EasterEggHuntApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: [Clue.self, GameProgress.self])
+        .modelContainer(for: [MovieEntity.self, Clue.self, GameProgress.self])
     }
 }

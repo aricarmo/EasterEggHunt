@@ -1,6 +1,6 @@
 import Foundation
 
-enum NetworkError: LocalizedError {
+public enum NetworkError: LocalizedError {
     case invalidURL
     case invalidResponse
     case serverError(Int)
@@ -8,7 +8,7 @@ enum NetworkError: LocalizedError {
     case networkError(Error)
     case noData
     
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .invalidURL:
             return "URL inválida"

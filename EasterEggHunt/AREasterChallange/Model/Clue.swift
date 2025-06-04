@@ -3,7 +3,7 @@ import SwiftData
 import ARKit
 
 @Model
-class Clue {
+class Clue: @unchecked Sendable {
     var id: UUID
     var number: Int
     var hint: String

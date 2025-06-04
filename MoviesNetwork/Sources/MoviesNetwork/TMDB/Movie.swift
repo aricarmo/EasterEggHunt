@@ -1,10 +1,6 @@
-// Sources/EasterNetworkKit/TMDB/TMDBModels.swift
-
 import Foundation
 
-// MARK: - Movie Model
-
-public struct Movie: Codable, Identifiable {
+public struct Movie: Codable, Identifiable, Sendable {
     public let id: Int
     public let title: String
     public let overview: String
@@ -43,7 +39,7 @@ public struct Movie: Codable, Identifiable {
 
 // MARK: - TMDB Response
 
-public struct TMDBResponse: Codable {
+public struct TMDBResponse: Codable, Sendable {
     public let results: [Movie]
     public let totalResults: Int
     

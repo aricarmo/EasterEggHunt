@@ -1,8 +1,7 @@
 import SwiftUI
 import SwiftData
 import Foundation
-
-// MARK: - Simple Movie Entity for SwiftData
+import MoviesNetwork
 
 @Model
 class MovieEntity {
@@ -29,7 +28,6 @@ class MovieEntity {
         self.voteAverage = voteAverage
     }
     
-    // Converter para Movie (DTO)
     func toMovie() -> Movie {
         Movie(
             id: id,
@@ -41,7 +39,6 @@ class MovieEntity {
         )
     }
     
-    // Criar MovieEntity a partir de Movie
     static func from(_ movie: Movie) -> MovieEntity {
         MovieEntity(
             id: movie.id,

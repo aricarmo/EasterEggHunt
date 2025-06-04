@@ -1,19 +1,22 @@
+import Foundation
+import SwiftData
+import MoviesNetwork
+
+@MainActor
 class MovieViewModelFactory {
-    static func create(apiKey: String = "SUA_CHAVE_AQUI") -> MovieViewModel {
-        // Dependency Injection setup
-        let networkService = NetworkService()
+    static func create(modelContext: ModelContext) -> MovieViewModel {
+        let config = TMDBConfiguration()
+        let networkService = MoviesNetwork.createTMDBService(apiKey: config.apiKey)
+        
         let movieRepository = MovieRepository(
             networkService: networkService,
-            apiKey: apiKey
+            modelContext: modelContext
         )
         
         return MovieViewModel(movieRepository: movieRepository)
     }
     
-    // Para testes unitários
-    static func createForTesting(
-        mockRepository: MovieRepositoryProtocol
-    ) -> MovieViewModel {
+    static func createForTesting(mockRepository: MovieRepositoryProtocol) -> MovieViewModel {
         return MovieViewModel(movieRepository: mockRepository)
     }
 }

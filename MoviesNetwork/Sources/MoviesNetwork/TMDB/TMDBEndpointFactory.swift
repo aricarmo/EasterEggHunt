@@ -1,13 +1,13 @@
 import Foundation
 
-struct TMDBEndpointFactory {
+public struct TMDBEndpointFactory {
     private let apiKey: String
     
     init(apiKey: String) {
         self.apiKey = apiKey
     }
     
-    func discoverMoviesByKeyword(_ keyword: Int) -> TMDBEndpoint {
+    public func discoverMoviesByKeyword(_ keyword: Int) -> TMDBEndpoint {
         TMDBEndpoint(
             apiKey: apiKey,
             endpoint: "/discover/movie",

@@ -6,15 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		52CD54202DF091FD00AED48F /* MoviesNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 52CD541F2DF091FD00AED48F /* MoviesNetwork */; };
+		52CD54222DF0921200AED48F /* MoviesNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 52CD54212DF0921200AED48F /* MoviesNetwork */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		526F88F32DEF438300713903 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 526F88DB2DEF438200713903 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 526F88E22DEF438200713903;
-			remoteInfo = EasterEggHunt;
-		};
-		526F88FD2DEF438300713903 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 526F88DB2DEF438200713903 /* Project object */;
 			proxyType = 1;
@@ -26,23 +24,30 @@
 /* Begin PBXFileReference section */
 		526F88E32DEF438200713903 /* EasterEggHunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EasterEggHunt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		526F88F22DEF438300713903 /* EasterEggHuntTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasterEggHuntTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		526F88FC2DEF438300713903 /* EasterEggHuntUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EasterEggHuntUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		526F896C2DEFE8CB00713903 /* Exceptions for "EasterEggHunt" folder in "EasterEggHunt" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 526F88E22DEF438200713903 /* EasterEggHunt */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		526F88E52DEF438200713903 /* EasterEggHunt */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				526F896C2DEFE8CB00713903 /* Exceptions for "EasterEggHunt" folder in "EasterEggHunt" target */,
+			);
 			path = EasterEggHunt;
 			sourceTree = "<group>";
 		};
 		526F88F52DEF438300713903 /* EasterEggHuntTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = EasterEggHuntTests;
-			sourceTree = "<group>";
-		};
-		526F88FF2DEF438300713903 /* EasterEggHuntUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = EasterEggHuntUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -52,17 +57,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				52CD54222DF0921200AED48F /* MoviesNetwork in Frameworks */,
+				52CD54202DF091FD00AED48F /* MoviesNetwork in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		526F88EF2DEF438300713903 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		526F88F92DEF438300713903 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -77,7 +77,6 @@
 			children = (
 				526F88E52DEF438200713903 /* EasterEggHunt */,
 				526F88F52DEF438300713903 /* EasterEggHuntTests */,
-				526F88FF2DEF438300713903 /* EasterEggHuntUITests */,
 				526F88E42DEF438200713903 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -87,7 +86,6 @@
 			children = (
 				526F88E32DEF438200713903 /* EasterEggHunt.app */,
 				526F88F22DEF438300713903 /* EasterEggHuntTests.xctest */,
-				526F88FC2DEF438300713903 /* EasterEggHuntUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,6 +110,8 @@
 			);
 			name = EasterEggHunt;
 			packageProductDependencies = (
+				52CD541F2DF091FD00AED48F /* MoviesNetwork */,
+				52CD54212DF0921200AED48F /* MoviesNetwork */,
 			);
 			productName = EasterEggHunt;
 			productReference = 526F88E32DEF438200713903 /* EasterEggHunt.app */;
@@ -140,29 +140,6 @@
 			productReference = 526F88F22DEF438300713903 /* EasterEggHuntTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		526F88FB2DEF438300713903 /* EasterEggHuntUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 526F890C2DEF438300713903 /* Build configuration list for PBXNativeTarget "EasterEggHuntUITests" */;
-			buildPhases = (
-				526F88F82DEF438300713903 /* Sources */,
-				526F88F92DEF438300713903 /* Frameworks */,
-				526F88FA2DEF438300713903 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				526F88FE2DEF438300713903 /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				526F88FF2DEF438300713903 /* EasterEggHuntUITests */,
-			);
-			name = EasterEggHuntUITests;
-			packageProductDependencies = (
-			);
-			productName = EasterEggHuntUITests;
-			productReference = 526F88FC2DEF438300713903 /* EasterEggHuntUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -175,12 +152,9 @@
 				TargetAttributes = {
 					526F88E22DEF438200713903 = {
 						CreatedOnToolsVersion = 16.4;
+						LastSwiftMigration = 1640;
 					};
 					526F88F12DEF438300713903 = {
-						CreatedOnToolsVersion = 16.4;
-						TestTargetID = 526F88E22DEF438200713903;
-					};
-					526F88FB2DEF438300713903 = {
 						CreatedOnToolsVersion = 16.4;
 						TestTargetID = 526F88E22DEF438200713903;
 					};
@@ -195,6 +169,9 @@
 			);
 			mainGroup = 526F88DA2DEF438200713903;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				52CD541E2DF08FFB00AED48F /* XCLocalSwiftPackageReference "MoviesNetwork" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 526F88E42DEF438200713903 /* Products */;
 			projectDirPath = "";
@@ -202,7 +179,6 @@
 			targets = (
 				526F88E22DEF438200713903 /* EasterEggHunt */,
 				526F88F12DEF438300713903 /* EasterEggHuntTests */,
-				526F88FB2DEF438300713903 /* EasterEggHuntUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -216,13 +192,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		526F88F02DEF438300713903 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		526F88FA2DEF438300713903 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -246,13 +215,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		526F88F82DEF438300713903 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -260,11 +222,6 @@
 			isa = PBXTargetDependency;
 			target = 526F88E22DEF438200713903 /* EasterEggHunt */;
 			targetProxy = 526F88F32DEF438300713903 /* PBXContainerItemProxy */;
-		};
-		526F88FE2DEF438300713903 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 526F88E22DEF438200713903 /* EasterEggHunt */;
-			targetProxy = 526F88FD2DEF438300713903 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -393,13 +350,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LK4R5SQ8MK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EasterEggHunt/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Precisamos da câmera para encontrar os ovos de Páscoa em realidade aumentada!";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "O app pode usar o microfone para melhorar a experiência AR.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -410,6 +373,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ari.EasterEggHunt;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -420,13 +384,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = LK4R5SQ8MK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = EasterEggHunt/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Precisamos da câmera para encontrar os ovos de Páscoa em realidade aumentada!";
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "O app pode usar o microfone para melhorar a experiência AR.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -478,38 +448,6 @@
 			};
 			name = Release;
 		};
-		526F890D2DEF438300713903 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ari.EasterEggHuntUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = EasterEggHunt;
-			};
-			name = Debug;
-		};
-		526F890E2DEF438300713903 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.ari.EasterEggHuntUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = EasterEggHunt;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -540,16 +478,25 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		526F890C2DEF438300713903 /* Build configuration list for PBXNativeTarget "EasterEggHuntUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				526F890D2DEF438300713903 /* Debug */,
-				526F890E2DEF438300713903 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		52CD541E2DF08FFB00AED48F /* XCLocalSwiftPackageReference "MoviesNetwork" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = MoviesNetwork;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		52CD541F2DF091FD00AED48F /* MoviesNetwork */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MoviesNetwork;
+		};
+		52CD54212DF0921200AED48F /* MoviesNetwork */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MoviesNetwork;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 526F88DB2DEF438200713903 /* Project object */;
 }

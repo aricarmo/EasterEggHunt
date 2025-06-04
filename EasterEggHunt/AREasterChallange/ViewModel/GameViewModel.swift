@@ -1,4 +1,4 @@
-mport SwiftUI
+import SwiftUI
 import SwiftData
 import SceneKit
 
@@ -7,9 +7,11 @@ class GameViewModel: ObservableObject {
     @Published var selectedClue: Clue?
     @Published var isInitialized = false
     
-    private var modelContext: ModelContext
+    var clueSize: Int
+    var modelContext: ModelContext
     
-    init(modelContext: ModelContext) {
+    init(clueSize: Int, modelContext: ModelContext) {
+        self.clueSize = clueSize
         self.modelContext = modelContext
     }
     
@@ -32,7 +34,6 @@ class GameViewModel: ObservableObject {
     }
     
     func resetGame() {
-        // Limpar dados existentes
         let clues = fetchClues()
         let gameProgress = fetchGameProgress()
         
@@ -47,44 +48,32 @@ class GameViewModel: ObservableObject {
     
     // MARK: - Clue Management
     func selectClue(_ clue: Clue) {
-        print("🎯 Pista selecionada: \(clue.number)")
         selectedClue = clue
     }
     
     func handleClueFound(_ clue: Clue) {
-        // Marcar pista como encontrada
         clue.isFound = true
         
-        // Atualizar progresso
         if let progress = fetchGameProgress().first {
             progress.totalFound += 1
             
-            // Desbloquear próxima pista
             if clue.number < 4 {
                 progress.currentClue = clue.number + 1
                 unlockNextClue(after: clue.number)
             } else {
-                // Todas as pistas encontradas
                 unlockSpecialModes(progress: progress)
             }
         }
         
-        // Limpar seleção
         selectedClue = nil
-        
-        // Salvar mudanças
         saveContext()
-        
-        print("✅ Pista \(clue.number) encontrada!")
     }
     
     func isClueAccessible(_ clue: Clue) -> Bool {
-        // Primeira pista sempre acessível
         if clue.number == 1 {
             return true
         }
         
-        // Outras pistas só se a anterior foi encontrada
         let clues = fetchClues()
         if let previousClue = clues.first(where: { $0.number == clue.number - 1 }) {
             return previousClue.isFound
@@ -135,13 +124,9 @@ class GameViewModel: ObservableObject {
     }
     
     private func unlockSpecialModes(progress: GameProgress) {
-        // Desbloquear modo especial imediatamente
-        progress.isSpecialModeUnlocked = true
-        
-        // Desbloquear lista de filmes após delay
         Task {
-            try? await Task.sleep(nanoseconds: 2_000_000_000) // 2 segundos
-            progress.isMovieListUnlocked = true
+            try? await Task.sleep(nanoseconds: 2_000_000_000)
+            progress.isSpecialModeUnlocked = true
             saveContext()
         }
     }
@@ -150,7 +135,7 @@ class GameViewModel: ObservableObject {
         do {
             try modelContext.save()
         } catch {
-            print("❌ Erro ao salvar contexto: \(error)")
+            print("Erro ao salvar contexto: \(error)")
         }
     }
 }

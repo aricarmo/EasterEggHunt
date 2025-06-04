@@ -1,3 +1,5 @@
+import SwiftUI
+
 struct ErrorView: View {
     let message: String
     let onRetry: () -> Void

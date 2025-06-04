@@ -9,7 +9,6 @@ struct ARCameraView: View {
     
     var body: some View {
         ZStack {
-            // AR View
             ARViewContainer(
                 targetClue: targetClue,
                 onClueCentered: {
@@ -27,9 +26,7 @@ struct ARCameraView: View {
             )
             .edgesIgnoringSafeArea(.all)
             
-            // UI Overlay
             VStack {
-                // Header
                 HStack {
                     Button("Voltar") {
                         dismiss()
@@ -41,12 +38,17 @@ struct ARCameraView: View {
                     .clipShape(Capsule())
                     
                     Spacer()
+                    
+                    Button("Simular pista encontrada") {
+                        onClueFound(targetClue)
+                    }
+                    .foregroundStyle(.green)
+                    .clipShape(Capsule())
                 }
                 .padding()
                 
                 Spacer()
                 
-                // Centro da tela - Crosshair para mira
                 if showCenterCrossHair && !isClueFound {
                     Image(systemName: "plus")
                         .font(.title2)
@@ -56,11 +58,10 @@ struct ARCameraView: View {
                 
                 Spacer()
                 
-                // Instruções na parte inferior
                 VStack(spacing: 8) {
                     if isClueFound {
                         VStack {
-                            Text("🎉 Post-it Encontrado!")
+                            Text("🎉 Pista Encontrada!")
                                 .font(.title2.bold())
                                 .foregroundStyle(.green)
                             
@@ -73,7 +74,7 @@ struct ARCameraView: View {
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                     } else {
                         VStack {
-                            Text("Procure o post-it:")
+                            Text("Procure a pista:")
                                 .font(.headline)
                                 .foregroundStyle(.white)
                             

@@ -1,3 +1,6 @@
+import SwiftUI
+import MoviesNetwork
+
 struct MovieRowView: View {
     let movie: Movie
     
@@ -36,7 +39,7 @@ struct MovieRowView: View {
                             .foregroundStyle(.yellow)
                             .font(.caption)
                         
-                        Text(String(format: "%.1f", movie.voteAvarage))
+                        Text(String(format: "%.1f", movie.voteAverage))
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }

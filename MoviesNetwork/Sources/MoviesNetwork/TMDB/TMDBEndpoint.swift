@@ -1,6 +1,6 @@
 import Foundation
 
-struct TMDBEndpoint: APIEndpoint {
+public struct TMDBEndpoint: APIEndpoint {
     private let apiKey: String
     private let endpoint: String
     private let parameters: [String: String]
@@ -11,15 +11,15 @@ struct TMDBEndpoint: APIEndpoint {
         self.parameters = parameters
     }
     
-    var baseURL: String {
+    public var baseURL: String {
         "https://api.themoviedb.org/3"
     }
     
-    var path: String {
+    public var path: String {
         endpoint
     }
     
-    var queryItems: [URLQueryItem]? {
+    public var queryItems: [URLQueryItem]? {
         var items = [URLQueryItem(name: "api_key", value: apiKey)]
         
         for (key, value) in parameters {
@@ -29,7 +29,7 @@ struct TMDBEndpoint: APIEndpoint {
         return items
     }
     
-    var url: URL? {
+    public var url: URL? {
         var components = URLComponents(string: baseURL + path)
         components?.queryItems = queryItems
         return components?.url

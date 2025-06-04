@@ -1,31 +1,23 @@
-//
-//  NetworkServiceProtocol.swift
-//  MoviesNetwork
-//
-//  Created by Arilson Simplicio on 04/06/25.
-//
-
-
 import Foundation
 
-protocol NetworkServiceProtocol {
+public protocol NetworkServiceProtocol {
     func request<T: Codable>(_ endpoint: APIEndpoint) async throws -> T
 }
 
-protocol URLSessionProtocol {
+public protocol URLSessionProtocol {
     func data(from url: URL) async throws -> (Data, URLResponse)
 }
 
 extension URLSession: URLSessionProtocol {}
 
-class NetworkService: NetworkServiceProtocol {
+public class NetworkService: NetworkServiceProtocol {
     private let session: URLSessionProtocol
     
     init(session: URLSessionProtocol = URLSession.shared) {
         self.session = session
     }
     
-    func request<T>(_ endpoint: any APIEndpoint) async throws -> T where T : Decodable, T : Encodable {
+    public func request<T>(_ endpoint: any APIEndpoint) async throws -> T where T : Decodable, T : Encodable {
         guard let url = endpoint.url else {
             throw NetworkError.invalidURL
         }
