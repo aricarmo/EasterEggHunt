@@ -3,11 +3,11 @@ import Foundation
 
 // MARK: - TMDB Service Implementation
 
-public protocol TMDBServiceProtocol {
+public protocol TMDBServiceProtocol: Sendable {
     func fetchEasterMovies() async throws -> [Movie]
 }
 
-public class TMDBService: TMDBServiceProtocol {
+public final class TMDBService: TMDBServiceProtocol {
     
     private let networkService: NetworkServiceProtocol
     private let endpointFactory: TMDBEndpointFactory

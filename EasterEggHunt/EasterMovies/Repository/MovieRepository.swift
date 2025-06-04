@@ -2,10 +2,11 @@ import Foundation
 import SwiftData
 import MoviesNetwork
 
-protocol MovieRepositoryProtocol {
+protocol MovieRepositoryProtocol: Sendable {
     func fetchEasterMovies() async throws -> [Movie]
 }
 
+@MainActor
 class MovieRepository: MovieRepositoryProtocol {
     private let networkService: TMDBServiceProtocol
     private let modelContext: ModelContext

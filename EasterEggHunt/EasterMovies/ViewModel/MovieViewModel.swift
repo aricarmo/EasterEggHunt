@@ -27,9 +27,7 @@ class MovieViewModel: ObservableObject {
     
     private func performMovieLoad() async {
         do {
-            let fetchedMovies = try await Task.detached {
-                return try await self.movieRepository.fetchEasterMovies()
-            }.value
+            let fetchedMovies = try await self.movieRepository.fetchEasterMovies()
             
             await updateUISuccess(movies: fetchedMovies)
         } catch {

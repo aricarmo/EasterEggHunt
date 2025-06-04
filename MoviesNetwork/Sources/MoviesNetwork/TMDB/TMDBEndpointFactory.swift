@@ -1,6 +1,6 @@
 import Foundation
 
-public struct TMDBEndpointFactory {
+public struct TMDBEndpointFactory: Sendable {
     private let apiKey: String
     
     init(apiKey: String) {

@@ -1,16 +1,16 @@
 import Foundation
 
-public protocol NetworkServiceProtocol {
+public protocol NetworkServiceProtocol: Sendable {
     func request<T: Codable>(_ endpoint: APIEndpoint) async throws -> T
 }
 
-public protocol URLSessionProtocol {
+public protocol URLSessionProtocol: Sendable {
     func data(from url: URL) async throws -> (Data, URLResponse)
 }
 
 extension URLSession: URLSessionProtocol {}
 
-public class NetworkService: NetworkServiceProtocol {
+public final class NetworkService: NetworkServiceProtocol {
     private let session: URLSessionProtocol
     
     init(session: URLSessionProtocol = URLSession.shared) {

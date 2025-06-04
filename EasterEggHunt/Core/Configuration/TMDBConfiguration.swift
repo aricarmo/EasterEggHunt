@@ -7,10 +7,10 @@ protocol ConfigurationProtocol {
 
 struct TMDBConfiguration: ConfigurationProtocol {
     var apiKey: String {
-        SecureConfig.shared.tmdbAPIKey
+        SecureConfig().tmdbAPIKey
     }
     
     var isProduction: Bool {
-        SecureConfig.shared.isProduction
+        SecureConfig().isProduction
     }
 }

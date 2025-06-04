@@ -2,6 +2,7 @@ import SwiftUI
 import ARKit
 import SceneKit
 
+@MainActor
 class ARCoordinator: NSObject, ARSCNViewDelegate {
     var arView: ARSCNView?
     var targetClue: Clue?
@@ -68,20 +69,19 @@ class ARCoordinator: NSObject, ARSCNViewDelegate {
         heavyImpact.prepare()
         selectionFeedback.prepare()
         
-        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] timer in
-            guard let self = self else {
-                timer.invalidate()
-                return
-            }
-            
-            let distance = self.getDistanceFromCenter()
-                        
-            self.provideFeedbackBasedOnDistance(distance)
-            
-            if distance < 50 {
-                timer.invalidate()
-                self.isPostItFound = true
-                self.onClueCentered?()
+        Task {
+            while !isPostItFound {
+                let distance = getDistanceFromCenter()
+                            
+                provideFeedbackBasedOnDistance(distance)
+                
+                if distance < 50 {
+                    isPostItFound = true
+                    onClueCentered?()
+                    break
+                }
+                
+                try? await Task.sleep(nanoseconds: 100_000_000)
             }
         }
     }

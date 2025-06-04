@@ -1,10 +1,7 @@
 import Foundation
 
-class SecureConfig {
-    static let shared = SecureConfig()
-    
-    private init() {}
-    
+
+struct SecureConfig {
     var tmdbAPIKey: String {
         guard let key = Bundle.main.object(forInfoDictionaryKey: "TMDB_API_KEY") as? String,
               !key.isEmpty else {
