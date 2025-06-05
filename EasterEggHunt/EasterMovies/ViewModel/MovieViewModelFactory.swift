@@ -10,13 +10,9 @@ class MovieViewModelFactory {
         
         let movieRepository = MovieRepository(
             networkService: networkService,
-            modelContext: modelContext
+            modelContainer: modelContext.container
         )
         
         return MovieViewModel(movieRepository: movieRepository)
-    }
-    
-    static func createForTesting(mockRepository: MovieRepositoryProtocol) -> MovieViewModel {
-        return MovieViewModel(movieRepository: mockRepository)
     }
 }

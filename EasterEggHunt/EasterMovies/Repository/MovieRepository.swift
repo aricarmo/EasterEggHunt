@@ -6,17 +6,16 @@ protocol MovieRepositoryProtocol: Sendable {
     func fetchEasterMovies() async throws -> [Movie]
 }
 
-@MainActor
-class MovieRepository: MovieRepositoryProtocol {
+actor MovieRepository: MovieRepositoryProtocol {
     private let networkService: TMDBServiceProtocol
-    private let modelContext: ModelContext
+    private let modelContainer: ModelContainer
     
     init(
         networkService: TMDBServiceProtocol,
-        modelContext: ModelContext
+        modelContainer: ModelContainer
     ) {
         self.networkService = networkService
-        self.modelContext = modelContext
+        self.modelContainer = modelContainer
     }
     
     func fetchEasterMovies() async throws -> [Movie] {
@@ -26,7 +25,7 @@ class MovieRepository: MovieRepositoryProtocol {
         } catch {
             print("[MovieRepository] API falhou: \(error.localizedDescription)")
             
-            if let cachedMovies = getCachedMovies(from: modelContext),
+            if let cachedMovies = await getCachedMovies(),
                !cachedMovies.isEmpty {
                 print("[MovieRepository] Usando cache como fallback")
                 return cachedMovies
@@ -36,6 +35,18 @@ class MovieRepository: MovieRepositoryProtocol {
         }
     }
 
+    private func getCachedMovies() async -> [Movie]? {
+        return await withCheckedContinuation { continuation in
+            Task { @MainActor in
+                
+                let context = ModelContext(modelContainer)
+                let result = getCachedMovies(from: context)
+                continuation.resume(returning: result)
+            }
+        }
+    }
+    
+    @MainActor
     private func getCachedMovies(from context: ModelContext) -> [Movie]? {
         do {
             let descriptor = FetchDescriptor<MovieEntity>(
