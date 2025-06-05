@@ -1,5 +1,4 @@
 import SwiftUI
-import SwiftData
 
 struct ClueListView: View {
     let clues: [Clue]

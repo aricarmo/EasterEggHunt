@@ -1,6 +1,5 @@
 import Foundation
 
-
 struct SecureConfig {
     var tmdbAPIKey: String {
         guard let key = Bundle.main.object(forInfoDictionaryKey: "TMDB_API_KEY") as? String,
