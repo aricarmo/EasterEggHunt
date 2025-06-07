@@ -34,16 +34,11 @@ actor MovieRepository: MovieRepositoryProtocol {
             throw error
         }
     }
-
+    
+    @MainActor
     private func getCachedMovies() async -> [Movie]? {
-        return await withCheckedContinuation { continuation in
-            Task { @MainActor in
-                
-                let context = ModelContext(modelContainer)
-                let result = getCachedMovies(from: context)
-                continuation.resume(returning: result)
-            }
-        }
+        let context = ModelContext(modelContainer)
+        return getCachedMovies(from: context)
     }
     
     @MainActor
