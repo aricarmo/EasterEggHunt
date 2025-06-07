@@ -13,8 +13,11 @@ extension URLSession: URLSessionProtocol {}
 public final class NetworkService: NetworkServiceProtocol {
     private let session: URLSessionProtocol
     
-    init(session: URLSessionProtocol = URLSession.shared) {
-        self.session = session
+    init() {
+        let config = URLSessionConfiguration.default
+        config.urlCache = nil
+        config.requestCachePolicy = .reloadIgnoringLocalCacheData
+        self.session = URLSession(configuration: config)
     }
     
     public func request<T>(_ endpoint: any APIEndpoint) async throws -> T where T : Decodable, T : Encodable {
@@ -44,5 +47,4 @@ public final class NetworkService: NetworkServiceProtocol {
             throw NetworkError.networkError(error)
         }
     }
-    
 }

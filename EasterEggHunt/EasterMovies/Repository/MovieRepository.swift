@@ -20,14 +20,13 @@ actor MovieRepository: MovieRepositoryProtocol {
     
     func fetchEasterMovies() async throws -> [Movie] {
         do {
-            let apiMovies = try await networkService.fetchEasterMovies()
-            return apiMovies
-        } catch {
-            print("[MovieRepository] API falhou: \(error.localizedDescription)")
+            let movies = try await networkService.fetchEasterMovies()
+            Task { await saveCachedMovies(movies) }
             
+            return movies
+        } catch {
             if let cachedMovies = await getCachedMovies(),
                !cachedMovies.isEmpty {
-                print("[MovieRepository] Usando cache como fallback")
                 return cachedMovies
             }
             
@@ -36,14 +35,9 @@ actor MovieRepository: MovieRepositoryProtocol {
     }
     
     @MainActor
-    private func getCachedMovies() async -> [Movie]? {
-        let context = ModelContext(modelContainer)
-        return getCachedMovies(from: context)
-    }
-    
-    @MainActor
-    private func getCachedMovies(from context: ModelContext) -> [Movie]? {
+    private func getCachedMovies() -> [Movie]? {
         do {
+            let context = ModelContext(modelContainer)
             let descriptor = FetchDescriptor<MovieEntity>(
                 sortBy: [SortDescriptor(\.voteAverage, order: .reverse)]
             )
@@ -59,6 +53,27 @@ actor MovieRepository: MovieRepositoryProtocol {
         } catch {
             print("[MovieRepository] Erro ao buscar cache: \(error)")
             return nil
+        }
+    }
+    
+    @MainActor
+    private func saveCachedMovies(_ movies: [Movie]) {
+        do {
+            let context = ModelContext(modelContainer)
+            let oldDescriptor = FetchDescriptor<MovieEntity>()
+            let oldMovies = try context.fetch(oldDescriptor)
+            
+            oldMovies.forEach { context.delete($0) }
+            
+            movies.forEach { movie in
+                let entity = MovieEntity.from(movie)
+                context.insert(entity)
+            }
+            
+            try context.save()
+            
+        } catch {
+            print("[MovieRepository] Erro ao salvar cache: \(error)")
         }
     }
 }
