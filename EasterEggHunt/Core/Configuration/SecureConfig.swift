@@ -14,10 +14,6 @@ struct SecureConfig {
         return !key.isEmpty && key.count > 10
     }
     
-    var tmdbBaseURL: String {
-        "https://api.themoviedb.org/3"
-    }
-    
     var isProduction: Bool {
         true 
     }
