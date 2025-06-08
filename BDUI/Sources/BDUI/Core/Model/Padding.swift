@@ -43,7 +43,7 @@ public enum PaddingValue: Codable, Sendable {
             PaddingValue.self,
             DecodingError.Context(
                 codingPath: decoder.codingPath,
-                debugDescription: "Expected Double or EdgeInsetsValue object"
+                debugDescription: ""
             )
         )
     }

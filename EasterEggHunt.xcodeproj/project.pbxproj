@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		521620582DF640F10015C61D /* BDUI in Frameworks */ = {isa = PBXBuildFile; productRef = 521620572DF640F10015C61D /* BDUI */; };
 		52CD54202DF091FD00AED48F /* MoviesNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 52CD541F2DF091FD00AED48F /* MoviesNetwork */; };
 		52CD54222DF0921200AED48F /* MoviesNetwork in Frameworks */ = {isa = PBXBuildFile; productRef = 52CD54212DF0921200AED48F /* MoviesNetwork */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				52CD54222DF0921200AED48F /* MoviesNetwork in Frameworks */,
+				521620582DF640F10015C61D /* BDUI in Frameworks */,
 				52CD54202DF091FD00AED48F /* MoviesNetwork in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +114,7 @@
 			packageProductDependencies = (
 				52CD541F2DF091FD00AED48F /* MoviesNetwork */,
 				52CD54212DF0921200AED48F /* MoviesNetwork */,
+				521620572DF640F10015C61D /* BDUI */,
 			);
 			productName = EasterEggHunt;
 			productReference = 526F88E32DEF438200713903 /* EasterEggHunt.app */;
@@ -171,6 +174,7 @@
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
 				52CD541E2DF08FFB00AED48F /* XCLocalSwiftPackageReference "MoviesNetwork" */,
+				521620562DF640CB0015C61D /* XCLocalSwiftPackageReference "BDUI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 526F88E42DEF438200713903 /* Products */;
@@ -483,6 +487,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCLocalSwiftPackageReference section */
+		521620562DF640CB0015C61D /* XCLocalSwiftPackageReference "BDUI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = BDUI;
+		};
 		52CD541E2DF08FFB00AED48F /* XCLocalSwiftPackageReference "MoviesNetwork" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = MoviesNetwork;
@@ -490,6 +498,10 @@
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		521620572DF640F10015C61D /* BDUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = BDUI;
+		};
 		52CD541F2DF091FD00AED48F /* MoviesNetwork */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = MoviesNetwork;

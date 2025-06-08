@@ -1,4 +1,5 @@
 import SwiftUI
+import BDUI
 
 struct MovieDetailView: View {
     let movieId: String
@@ -31,22 +32,7 @@ struct MovieDetailView: View {
                 }
             )
         } else {
-            ComponentListView(components: viewModel.components)
-                .environmentObject(actionManager)
-        }
-    }
-}
-
-struct ComponentListView: View {
-    let components: [UIComponent]
-    
-    var body: some View {
-        ScrollView {
-            LazyVStack(spacing: 0) {
-                ForEach(components) { component in
-                    ComponentRenderer(component: component)
-                }
-            }
+            BDUIView(components: viewModel.components)
         }
     }
 }

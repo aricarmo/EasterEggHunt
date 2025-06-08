@@ -1,4 +1,5 @@
 import SwiftUI
+import BDUI
 
 @MainActor
 class MovieDetailViewModel: ObservableObject {
@@ -7,15 +8,13 @@ class MovieDetailViewModel: ObservableObject {
     @Published var error: String?
     @Published var movieTitle = ""
     
-    private let apiService = BDUIMovieAPI()
-    
     func loadMovieDetail(movieId: String) {
         Task {
             isLoading = true
             error = nil
             
             do {
-                components = try await apiService.fetchMovieDetail(movieId: movieId)
+                components = try await BDUIMovieAPI().fetchMovieDetail(movieId: movieId)
                 
                 if let titleComponent = components.first(where: { $0.type == .title }) {
                     movieTitle = titleComponent.properties.text ?? "Filme"
