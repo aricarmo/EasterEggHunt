@@ -13,7 +13,7 @@ public struct MovieMetadata: Codable {
 }
 
 public actor BDUIMovieAPI {
-    private let baseURL = "https://movie-bdui-dcersu2pb-aris-projects-a50e6757.vercel.app"
+    private let baseURL = "https://movie-bdui-59if4wut5-aris-projects-a50e6757.vercel.app"
     private let session = URLSession.shared
     
     public init() {}
