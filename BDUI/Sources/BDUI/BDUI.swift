@@ -7,14 +7,15 @@ public struct BDUI {
 }
 
 // MARK: - Main BDUI View
-/// Main view for rendering a list of BDUI components
 public struct BDUIView: View {
     let components: [UIComponent]
     let spacing: CGFloat
+    let actionManager: ActionManager
     
-    public init(components: [UIComponent], spacing: CGFloat = 0) {
+    public init(components: [UIComponent], spacing: CGFloat = 0, actionManager: ActionManager = ActionManager()) {
         self.components = components
         self.spacing = spacing
+        self.actionManager = actionManager
     }
     
     public var body: some View {
@@ -22,6 +23,7 @@ public struct BDUIView: View {
             LazyVStack(spacing: spacing) {
                 ForEach(components) { component in
                     ComponentRenderer(component: component)
+                        .environmentObject(actionManager)
                 }
             }
         }

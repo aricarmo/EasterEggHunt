@@ -5,7 +5,7 @@ public struct ButtonComponent: View {
     
     public var body: some View {
         Button(action: {
-            //handleAction(properties.action)
+            ActionManager().execute(properties.action)
         }) {
             Text(properties.text ?? "Button")
                 .font(.system(size: properties.fontSize ?? 16, weight: fontWeight))
@@ -27,12 +27,12 @@ public struct ButtonComponent: View {
         }
     }
     
-    private func handleAction(_ action: String?) {
+    private func handleAction(_ action: ActionData?) {
         guard let action = action else { return }
         
-        switch action {
-        case "watch_trailer":
-            print("Assistir trailer do filme")
+        switch action.type {
+        case "open_url":
+            print("")
         default:
             print("Ação: \(action)")
         }
