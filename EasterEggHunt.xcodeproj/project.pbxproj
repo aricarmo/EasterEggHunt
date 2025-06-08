@@ -27,7 +27,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		526F896C2DEFE8CB00713903 /* Exceptions for "EasterEggHunt" folder in "EasterEggHunt" target */ = {
+		52E189B72DF6003E00C8AC34 /* Exceptions for "EasterEggHunt" folder in "EasterEggHunt" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
@@ -40,7 +40,7 @@
 		526F88E52DEF438200713903 /* EasterEggHunt */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				526F896C2DEFE8CB00713903 /* Exceptions for "EasterEggHunt" folder in "EasterEggHunt" target */,
+				52E189B72DF6003E00C8AC34 /* Exceptions for "EasterEggHunt" folder in "EasterEggHunt" target */,
 			);
 			path = EasterEggHunt;
 			sourceTree = "<group>";
