@@ -1,14 +1,12 @@
 import SwiftUI
 
-struct ChipComponent: View {
+public struct TitleComponent: View {
     let properties: ComponentProperties
     
-    var body: some View {
+    public var body: some View {
         Text(properties.text ?? "")
-            .font(.system(size: properties.fontSize ?? 14, weight: fontWeight))
-            .foregroundColor(Color(hex: properties.color ?? "#FFFFFF"))
-            .background(Color(hex: properties.backgroundColor ?? "#007AFF"))
-            .cornerRadius(properties.cornerRadius ?? 16)
+            .font(.system(size: properties.fontSize ?? 24, weight: fontWeight))
+            .foregroundColor(Color(hex: properties.color ?? "#000000"))
             .applyCommonModifiers(properties: properties)
     }
     

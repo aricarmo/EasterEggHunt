@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct EdgeInsetsValue: Codable {
+public struct EdgeInsetsValue: Codable, Sendable {
     let top: Double
     let leading: Double
     let bottom: Double
@@ -22,11 +22,11 @@ struct EdgeInsetsValue: Codable {
     }
 }
 
-enum PaddingValue: Codable {
+public enum PaddingValue: Codable, Sendable {
     case simple(Double)
     case complex(EdgeInsetsValue)
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         
         if let double = try? container.decode(Double.self) {
@@ -48,7 +48,7 @@ enum PaddingValue: Codable {
         )
     }
     
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {
         case .simple(let double):

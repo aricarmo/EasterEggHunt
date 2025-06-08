@@ -1,15 +1,19 @@
 import SwiftUI
 
-struct ComponentRenderer: View {
-    let component: UIComponent
-    @EnvironmentObject var actionManager: ActionManager
+public struct ComponentRenderer: View {
+    public let component: UIComponent
+    @EnvironmentObject public var actionManager: ActionManager
     
-    var body: some View {
+    public init(component: UIComponent) {
+        self.component = component
+    }
+    
+    public var body: some View {
         content.applyCommonModifiers(properties: component.properties)
     }
     
     @ViewBuilder
-    private var content: some View {
+    public var content: some View {
         switch component.type {
         case .image:
             ImageComponent(properties: component.properties)

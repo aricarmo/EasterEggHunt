@@ -1,9 +1,9 @@
 import SwiftUI
 
-struct ButtonComponent: View {
+public struct ButtonComponent: View {
     let properties: ComponentProperties
     
-    var body: some View {
+    public var body: some View {
         Button(action: {
             //handleAction(properties.action)
         }) {

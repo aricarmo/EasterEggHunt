@@ -1,8 +1,10 @@
 import SwiftUI
 
-class ActionManager: ObservableObject {
+public class ActionManager: ObservableObject {
     
-    @MainActor func execute(_ actionData: ActionData?) {
+    public init() {}
+    
+    @MainActor public func execute(_ actionData: ActionData?) {
         guard let actionData = actionData else { return }
         
         switch actionData.type {
@@ -15,7 +17,7 @@ class ActionManager: ObservableObject {
         }
     }
     
-    private func handleShare(data: [String: AnyCodable]?) {
+    func handleShare(data: [String: AnyCodable]?) {
 //        guard let data = data,
 //              let content = data["content"]?.value as? String else { return }
 //        
@@ -24,7 +26,7 @@ class ActionManager: ObservableObject {
     }
     
     @MainActor
-    private func handleOpenURL(data: [String: AnyCodable]?) {
+    func handleOpenURL(data: [String: AnyCodable]?) {
 //        guard let data = data,
 //              let urlString = data["url"],
 //              let url = URL(string: urlString) else { return }

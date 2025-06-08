@@ -1,17 +1,17 @@
 import Foundation
 
-struct UIComponent: Codable, Identifiable, Sendable {
-    let id = UUID()
-    let type: ComponentType
-    let properties: ComponentProperties
+public struct UIComponent: Codable, Identifiable, Sendable {
+    public let id = UUID()
+    public let type: ComponentType
+    public let properties: ComponentProperties
     
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case type
         case properties
     }
 }
 
-enum ComponentType: String, Codable {
+public enum ComponentType: String, Codable, Sendable {
     case text
     case title
     case subtitle
@@ -25,24 +25,24 @@ enum ComponentType: String, Codable {
     case label
 }
 
-struct ComponentProperties: Codable, Sendable {
-    let text: String?
-    let imageUrl: String?
-    let fontSize: Double?
-    let fontWeight: String?
-    let color: String?
-    let backgroundColor: String?
-    let padding: PaddingValue?
-    let cornerRadius: Double?
-    let rating: Double?
-    let maxRating: Double?
-    let height: CGFloat?
-    let width: CGFloat?
-    let children: [UIComponent]?
-    let action: ActionData?
-    let isEnabled: Bool?
+public struct ComponentProperties: Codable, Sendable {
+    public let text: String?
+    public let imageUrl: String?
+    public let fontSize: Double?
+    public let fontWeight: String?
+    public let color: String?
+    public let backgroundColor: String?
+    public let padding: PaddingValue?
+    public let cornerRadius: Double?
+    public let rating: Double?
+    public let maxRating: Double?
+    public let height: CGFloat?
+    public let width: CGFloat?
+    public let children: [UIComponent]?
+    public let action: ActionData?
+    public let isEnabled: Bool?
     
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case text, imageUrl, fontSize, fontWeight, color, backgroundColor
         case padding, cornerRadius, rating, maxRating, children
         case width, height
@@ -50,13 +50,13 @@ struct ComponentProperties: Codable, Sendable {
     }
 }
 
-struct EdgeInsets: Codable {
+public struct EdgeInsets: Codable {
     let top: Double
     let leading: Double
     let bottom: Double
     let trailing: Double
     
-    init(top: Double = 0, leading: Double = 0, bottom: Double = 0, trailing: Double = 0) {
+    public init(top: Double = 0, leading: Double = 0, bottom: Double = 0, trailing: Double = 0) {
         self.top = top
         self.leading = leading
         self.bottom = bottom
@@ -64,12 +64,12 @@ struct EdgeInsets: Codable {
     }
 }
 
-struct ActionData: Codable, Sendable {
+public struct ActionData: Codable, Sendable {
     let type: String
     let data: [String: AnyCodable]?
 }
 
-struct AnyCodable: Codable, Sendable {
+public struct AnyCodable: Codable, Sendable {
     private enum CodableValue: Codable, Sendable {
         case bool(Bool)
         case int(Int)
@@ -90,11 +90,11 @@ struct AnyCodable: Codable, Sendable {
     
     private let codableValue: CodableValue
     
-    var value: Any? {
+    public var value: Any? {
         codableValue.anyValue
     }
     
-    init<T>(_ value: T?) {
+    public init<T>(_ value: T?) {
         if let value = value {
             switch value {
             case let bool as Bool:
@@ -113,7 +113,7 @@ struct AnyCodable: Codable, Sendable {
         }
     }
     
-    init(from decoder: Decoder) throws {
+    public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
         
         if let bool = try? container.decode(Bool.self) {
@@ -129,7 +129,7 @@ struct AnyCodable: Codable, Sendable {
         }
     }
     
-    func encode(to encoder: Encoder) throws {
+    public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         
         switch codableValue {

@@ -1,22 +1,24 @@
 import Foundation
 
-struct MovieDetailResponse: Codable {
-    let movieId: String
-    let version: String
-    let metadata: MovieMetadata
-    let components: [UIComponent]
+public struct MovieDetailResponse: Codable {
+    public let movieId: String
+    public let version: String
+    public let metadata: MovieMetadata
+    public let components: [UIComponent]
 }
 
-struct MovieMetadata: Codable {
-    let title: String
-    let backgroundColor: String
+public struct MovieMetadata: Codable {
+    public let title: String
+    public let backgroundColor: String
 }
 
-actor BDUIMovieAPI {
+public actor BDUIMovieAPI {
     private let baseURL = "https://movie-bdui-dcersu2pb-aris-projects-a50e6757.vercel.app"
     private let session = URLSession.shared
     
-    func fetchMovieDetail(movieId: String) async throws -> [UIComponent] {
+    public init() {}
+    
+    public func fetchMovieDetail(movieId: String) async throws -> [UIComponent] {
         guard let url = URL(string: "\(baseURL)/api/movie/\(movieId)") else {
             throw URLError(.badURL)
         }
@@ -35,12 +37,12 @@ actor BDUIMovieAPI {
     }
 }
 
-enum APIError: LocalizedError {
+public enum APIError: LocalizedError {
     case httpError(Int)
     case decodingError
     case networkError
     
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
         case .httpError(let code):
             return "Erro HTTP: \(code)"

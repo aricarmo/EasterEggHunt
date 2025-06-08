@@ -1,9 +1,9 @@
 import SwiftUI
 
-struct RatingComponent: View {
+public struct RatingComponent: View {
     let properties: ComponentProperties
     
-    var body: some View {
+    public var body: some View {
         HStack(spacing: 4) {
             ForEach(0..<Int(properties.maxRating ?? 5), id: \.self) { index in
                 Image(systemName: index < Int(properties.rating ?? 0) ? "star.fill" : "star")

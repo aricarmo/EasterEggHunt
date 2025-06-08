@@ -1,9 +1,9 @@
 import SwiftUI
 
-struct ImageComponent: View {
+public struct ImageComponent: View {
     let properties: ComponentProperties
     
-    var body: some View {
+    public var body: some View {
         AsyncImage(url: URL(string: properties.imageUrl ?? "")) { image in
             image
                 .resizable()

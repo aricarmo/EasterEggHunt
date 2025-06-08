@@ -1,6 +1,7 @@
 import SwiftUI
 
-/* Extention copiada do Projeto da empresa atual que eu trabalho. */
+/* Extention copiada de outro projeto. */
+
 extension Color {
     init(hex: String) {
         let hex = hex.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
