@@ -83,10 +83,9 @@ Execute os testes com Cmd+U no Xcode.
 ## Considerações Técnicas
 
 O projeto prioriza demonstração de competências em:
-- Desenvolvimento iOS moderno com Swift 6
+- Desenvolvimento com Swift 6
 - Arquitetura escalável e testável
-- Integração de múltiplas tecnologias (AR, persistência, networking)
-- Qualidade de código e boas práticas
+- Integração de múltiplas tecnologias (AR, persistência, networking, BDUI)
 - Gerenciamento de dependências e modularização
 
 ## Estrutura de Dados
