@@ -102,7 +102,7 @@ class GameViewModel: ObservableObject {
         let newClues = [
             Clue(number: 1, hint: "Já olhou para o céu hoje?", emoji: "🙏", isUnlocked: true, position: SCNVector3(0, 1.5, -2)),
             Clue(number: 2, hint: "É importante saber onde está pisando", emoji: "🐰", isUnlocked: false, position: SCNVector3(0, -0.5, -1.5)),
-            Clue(number: 3, hint: "Se der uma rodadinha vai achar uma surpresinha", emoji: "🐔", isUnlocked: false, position: SCNVector3(1.5, 0.5, -2)),
+            Clue(number: 3, hint: "Se der uma volta você pode achar algo!", emoji: "🐔", isUnlocked: false, position: SCNVector3(1.5, 0.5, -2)),
             Clue(number: 4, hint: "Longe longe longe, na esquerda!", emoji: "🎯", isUnlocked: false, position: SCNVector3(-2, 0.8, -2.5))
         ]
         
