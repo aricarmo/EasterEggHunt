@@ -24,6 +24,7 @@ O projeto segue a arquitetura MVVM (Model-View-ViewModel) com separação clara 
 - Swift Package Manager para modularização
 - SwiftTesting para testes unitários
 - TMDB API para catálogo de filmes
+- BDUI para carregar UI dinamicamente do Backend (Tela de detalhes)
 
 ## Configuração e Instalação
 
@@ -94,3 +95,4 @@ O projeto prioriza demonstração de competências em:
 - **GameProgress**: Controle de progresso e estado do jogo
 - **GameViewModel**: Coordenação entre UI e lógica de negócio
 - **MoviesNetwork**: Módulo SPM para comunicação com TMDB API
+- **BDUI**: Módulo SPM para comunicação com a API criada por mim para trazer o layout da tela de detalhes do backend.
