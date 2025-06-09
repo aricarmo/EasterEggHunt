@@ -32,7 +32,7 @@ struct MovieDetailView: View {
                 }
             )
         } else {
-            BDUIView(components: viewModel.components)
+            BDUIView(components: viewModel.components, actionManager: actionManager)
         }
     }
 }

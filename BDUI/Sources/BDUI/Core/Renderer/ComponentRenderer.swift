@@ -41,6 +41,5 @@ public struct ComponentRenderer: View {
         default:
             EmptyView()
         }
-        
     }
 }

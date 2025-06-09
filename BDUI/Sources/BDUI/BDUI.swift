@@ -11,7 +11,7 @@ public struct BDUIView: View {
     let spacing: CGFloat
     let actionManager: ActionManager
     
-    public init(components: [UIComponent], spacing: CGFloat = 0, actionManager: ActionManager = ActionManager()) {
+    public init(components: [UIComponent], spacing: CGFloat = 0, actionManager: ActionManager) {
         self.components = components
         self.spacing = spacing
         self.actionManager = actionManager

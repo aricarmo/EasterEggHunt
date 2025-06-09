@@ -2,10 +2,11 @@ import SwiftUI
 
 public struct ButtonComponent: View {
     let properties: ComponentProperties
+    @EnvironmentObject var actionManager: ActionManager
     
     public var body: some View {
         Button(action: {
-            ActionManager().execute(properties.action)
+            actionManager.execute(properties.action)
         }) {
             Text(properties.text ?? "Button")
                 .font(.system(size: properties.fontSize ?? 16, weight: fontWeight))
