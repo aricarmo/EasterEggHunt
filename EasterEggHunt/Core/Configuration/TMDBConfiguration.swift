@@ -1,11 +1,11 @@
 import Foundation
 
-protocol ConfigurationProtocol {
+protocol TMDBConfigurationProtocol {
     var apiKey: String { get }
     var isProduction: Bool { get }
 }
 
-struct TMDBConfiguration: ConfigurationProtocol {
+struct TMDBConfiguration: TMDBConfigurationProtocol {
     var apiKey: String {
         SecureConfig().tmdbAPIKey
     }

@@ -26,15 +26,4 @@ public struct ButtonComponent: View {
         default: return .regular
         }
     }
-    
-    private func handleAction(_ action: ActionData?) {
-        guard let action = action else { return }
-        
-        switch action.type {
-        case "open_url":
-            print("")
-        default:
-            print("Ação: \(action)")
-        }
-    }
 }

@@ -4,8 +4,8 @@ import MoviesNetwork
 
 @MainActor
 class MovieViewModelFactory {
-    static func create(modelContext: ModelContext) -> MovieViewModel {
-        let config = TMDBConfiguration()
+    static func create(modelContext: ModelContext,
+                       config: TMDBConfigurationProtocol = TMDBConfiguration()) -> MovieViewModel {
         let networkService = MoviesNetwork.createTMDBService(apiKey: config.apiKey)
         
         let movieRepository = MovieRepository(
