@@ -35,9 +35,8 @@ O projeto segue a arquitetura MVVM (Model-View-ViewModel) com separação clara 
 ### Instalação
 
 1. Clone o repositório
-2. **IMPORTANTE**: O projeto utiliza Swift Package Manager para o módulo MoviesNetwork. Aguarde o Xcode resolver as dependências automaticamente ou configure manualmente em File -> Add Package Dependencies
-3. Configure a API key do TMDB em TMDBEndpointFactory.swift
-4. Build e execute o projeto
+2. **IMPORTANTE**: O projeto utiliza Swift Package Manager para o módulo MoviesNetwork e BDUI. Aguarde o Xcode resolver as dependências automaticamente ou configure manualmente em File -> Add Package Dependencies
+3. Build e execute o projeto
 
 ### Como testar
 
