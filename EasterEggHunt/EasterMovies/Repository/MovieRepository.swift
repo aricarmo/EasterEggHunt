@@ -3,7 +3,7 @@ import SwiftData
 import MoviesNetwork
 
 protocol MovieRepositoryProtocol: Sendable {
-    func fetchEasterMovies() async throws -> [Movie]
+    func fetchEasterMovies() async throws -> MovieResult
 }
 
 actor MovieRepository: MovieRepositoryProtocol {
@@ -18,16 +18,16 @@ actor MovieRepository: MovieRepositoryProtocol {
         self.modelContainer = modelContainer
     }
     
-    func fetchEasterMovies() async throws -> [Movie] {
+    func fetchEasterMovies() async throws -> MovieResult {
         do {
             let movies = try await networkService.fetchEasterMovies()
             Task { await saveCachedMovies(movies) }
             
-            return movies
+            return MovieResult(movies: movies, isFromCache: false)
         } catch {
             if let cachedMovies = await getCachedMovies(),
                !cachedMovies.isEmpty {
-                return cachedMovies
+                return MovieResult(movies: cachedMovies, isFromCache: true)
             }
             
             throw error

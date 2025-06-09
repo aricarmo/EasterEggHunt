@@ -28,10 +28,11 @@ class MovieViewModel: ObservableObject {
     private func performMovieLoad() async {
         do {
             let fetchedMovies = try await self.movieRepository.fetchEasterMovies()
-            
-            await updateUISuccess(movies: fetchedMovies)
+            isFromCache = fetchedMovies.isFromCache
+            await updateUISuccess(movies: fetchedMovies.movies)
         } catch {
-             await updateUIError(error: error)
+            isFromCache = false
+            await updateUIError(error: error)
         }
     }
     

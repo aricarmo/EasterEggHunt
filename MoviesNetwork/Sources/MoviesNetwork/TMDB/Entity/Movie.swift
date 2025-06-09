@@ -53,3 +53,13 @@ public struct TMDBResponse: Codable, Sendable {
         case totalResults = "total_results"
     }
 }
+
+public struct MovieResult: Sendable {
+    public let movies: [Movie]
+    public let isFromCache: Bool
+    
+    public init(movies: [Movie], isFromCache: Bool) {
+        self.movies = movies
+        self.isFromCache = isFromCache
+    }
+}
