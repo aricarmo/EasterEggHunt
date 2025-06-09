@@ -42,6 +42,27 @@ public struct ComponentProperties: Codable, Sendable {
     public let action: ActionData?
     public let isEnabled: Bool?
     
+    public init(text: String? = nil, imageUrl: String? = nil, fontSize: Double? = nil, fontWeight: String? = nil, color: String? = nil,
+                backgroundColor: String? = nil, padding: PaddingValue? = nil, cornerRadius: Double? = nil, rating: Double? = nil,
+                maxRating: Double? = nil, height: CGFloat? = nil, width: CGFloat? = nil, children: [UIComponent]? = nil, action: ActionData? = nil,
+                isEnabled: Bool? = nil) {
+        self.text = text
+        self.imageUrl = imageUrl
+        self.fontSize = fontSize
+        self.fontWeight = fontWeight
+        self.color = color
+        self.backgroundColor = backgroundColor
+        self.padding = padding
+        self.cornerRadius = cornerRadius
+        self.rating = rating
+        self.maxRating = maxRating
+        self.height = height
+        self.width = width
+        self.children = children
+        self.action = action
+        self.isEnabled = isEnabled
+    }
+    
     public enum CodingKeys: String, CodingKey {
         case text, imageUrl, fontSize, fontWeight, color, backgroundColor
         case padding, cornerRadius, rating, maxRating, children

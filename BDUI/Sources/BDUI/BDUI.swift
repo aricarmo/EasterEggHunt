@@ -6,7 +6,6 @@ public struct BDUI {
     public static func initialize() { }
 }
 
-// MARK: - Main BDUI View
 public struct BDUIView: View {
     let components: [UIComponent]
     let spacing: CGFloat
@@ -27,15 +26,5 @@ public struct BDUIView: View {
                 }
             }
         }
-    }
-}
-
-// MARK: - Public Extensions
-public extension View {
-    /// Apply BDUI styling to any view
-    func bduiStyle() -> some View {
-        self
-            .font(.system(.body, design: .default))
-            .foregroundColor(.primary)
     }
 }

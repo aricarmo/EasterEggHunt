@@ -12,7 +12,7 @@ public final class ActionManager: ObservableObject {
         case "open_url":
             handleOpenURL(data: actionData.data)
         default:
-            print("Ação desconhecida: \(actionData.type)")
+            print("Action desconhecida: \(actionData.type)")
         }
     }
     
