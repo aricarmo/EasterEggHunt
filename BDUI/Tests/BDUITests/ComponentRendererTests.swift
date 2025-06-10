@@ -18,7 +18,7 @@ struct ComponentRendererSimpleTests {
     
     @Test("Deve preservar as propriedades do componente")
     func componentProperties() {
-        let properties = ComponentProperties(text: "That's funny! hahahaha", imageUrl: nil, fontSize: 24, fontWeight: "bold", color: "#FF0000", backgroundColor: "#00FF00", padding: .simple(20), cornerRadius: 10, rating: nil, maxRating: nil, height: nil, width: nil, children: nil, action: nil, isEnabled: true)
+        let properties = ComponentProperties(text: "That's funny! hahahaha", fontSize: 24, fontWeight: "bold", color: "#FF0000", backgroundColor: "#00FF00", padding: .simple(20), cornerRadius: 10, isEnabled: true)
         let component = UIComponent(type: .text, properties: properties)
         
         let renderer = ComponentRenderer(component: component)
