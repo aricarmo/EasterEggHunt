@@ -6,8 +6,6 @@ import SwiftUI
 @MainActor
 struct ComponentRendererSimpleTests {
     
-    // MARK: - Basic Tests (sem ViewInspector)
-    
     @MainActor @Test("Deve inicializar corretamente com um componente")
     func initialization() {
         let component = UIComponent.mockText(text: "Test")
